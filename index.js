@@ -32,7 +32,7 @@ const connect =async (req,res)=>{
 ///Middlewares
 app.use(express.json());
 app.use(cors({
-    origin: ['http://localhost:5174', "https://pay-wise-rji5o6kay-followcomes-projects.vercel.app/"],
+    origin: ['http://localhost:5174', "https://pay-wise-rji5o6kay-followcomes-projects.vercel.app"],
   credentials: true   
 }));
 app.use("/api/auth",authRoute);
