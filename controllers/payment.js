@@ -25,7 +25,7 @@ export const initializePayment = async (req,res,next) =>{
         const response = await axios.post("https://api.paystack.co/transaction/initialize", {
             email:req.user.email,
             amount:course.price * 100,
-            callback_url:`http://localhost:7200/api/payment/verify/ ${subscription._id}`,
+            callback_url:`${process.env.CALLBACK_URL}/api/payment/verify/${subscription._id}`,
         },
    { headers: {
         Authorization:`Bearer ${process.env.PAYSTACK_SECRET_KEY}`,
@@ -43,8 +43,10 @@ export const initializePayment = async (req,res,next) =>{
     } catch (err) {
         console.error("Error in /initialize route:", err);
         res.status(500).json({
-            message:"payment initialization failed",
-            error: err.message,
+            // message:"payment initialization failed",
+            // error: err.message,
+            
+            
         });
         
     }
