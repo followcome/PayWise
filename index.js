@@ -41,6 +41,7 @@ app.use("/api/subscription",subScriptionRoute);
 app.use("/api/payment",paymentRoute);
 
 
+const PORT = process.env.PORT || 7200;
 app.use((err,req,res,next)=>{
     const errorStatus = err.errorStatus || 500
     const errorMessage = err.message || "Something went wrong"
@@ -61,7 +62,7 @@ app.get("/",(req,res)=>{
 })
 
 
-app.listen(7200,()=>{
+app.listen(PORT,()=>{
     connect()
 
     console.log("Backend connected!")

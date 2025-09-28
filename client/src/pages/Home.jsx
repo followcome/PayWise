@@ -42,6 +42,7 @@ export default function Home (){
             );
             window.location.href = res.data.authorization_url;
         } catch (err) {
+            console.error("Axios error:", err);
             
             setError(err.message);
             
