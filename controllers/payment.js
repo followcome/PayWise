@@ -43,8 +43,8 @@ export const initializePayment = async (req,res,next) =>{
     } catch (err) {
         console.error("Error in /initialize route:", err);
         res.status(500).json({
-            // message:"payment initialization failed",
-            // error: err.message,
+            message:"payment initialization failed",
+            error: err.message,
             
             
         });
