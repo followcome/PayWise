@@ -14,6 +14,8 @@ export default function Home (){
                 const res = await axios.get(`${import.meta.env.VITE_API_URL}/api`,
                     {withCredentials:true}
                 );
+
+
                 setCourses(res.data);
             } catch (err) {
 

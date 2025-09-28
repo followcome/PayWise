@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { verifyPayment } from "../../../controllers/payment";
 import './PaymentSuccess.css';
 
 export default function PaymentSuccess (){
