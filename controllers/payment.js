@@ -6,8 +6,7 @@ import { CreateError } from "../utils/error.js";
 
 export const initializePayment = async (req,res,next) =>{
     try {
-         console.log("Got a request to initialize payment");  // log entry
-  console.log("req.params:", req.params);
+    
         const {courseId} = req.params;
         console.log("Extracted courseId:", courseId);
         //Find the course
