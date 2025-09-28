@@ -31,7 +31,10 @@ const connect =async (req,res)=>{
 
 ///Middlewares
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:5174', 
+  credentials: true   
+}));
 app.use("/api/auth",authRoute);
 app.use("/api",courseRoute);
 app.use("/api/subscription",subScriptionRoute);
@@ -51,7 +54,12 @@ app.use((err,req,res,next)=>{
 });
 app.get("/api/protected",verifyToken,(req,res,next)=>{
     res.json({message: `Hello ${req.user.email},you access a protected route`})
+});
+
+app.get("/",(req,res)=>{
+    res.send("SaaS Api is Ready!")
 })
+
 
 app.listen(7200,()=>{
     connect()

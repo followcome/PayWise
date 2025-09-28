@@ -6,6 +6,10 @@ import { CreateError } from "../utils/error.js";
 
 export const initializePayment = async (req,res,next) =>{
     try {
+         console.log("Got a request to initialize payment");  // log entry
+  console.log("req.params:", req.params);
+        const {courseId} = req.params;
+        console.log("Extracted courseId:", courseId);
         //Find the course
         const course = await Course.findById(req.params.courseId);
         if(!course) return next (CreateError(404,"Course not found"));
@@ -38,6 +42,7 @@ export const initializePayment = async (req,res,next) =>{
         
         
     } catch (err) {
+        console.error("Error in /initialize route:", err);
         res.status(500).json({
             message:"payment initialization failed",
             error: err.message,
@@ -50,6 +55,13 @@ export const initializePayment = async (req,res,next) =>{
 
     export const verifyPayment  = async (req,res,next) =>{
         try {
+            const {subscriptionId} = req.params;
+            // if(!subscription){
+            //     return res.status(400).json({
+            //         success:false,
+            //         message:"Subscription not found"
+            //     })
+            // }
             //Find subscription
             const subscription = await Subscription.findById(req.params.subscriptionId);
             if(!subscription) return next(CreateError(404,"Subscription not found"));

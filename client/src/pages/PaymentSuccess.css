@@ -1,0 +1,22 @@
+.success-container {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 3rem;
+    background-color: #f9f9f9;
+    border: 2px solid #4caf50;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .success-container h1 {
+    color: #4caf50;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .success-container p {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
